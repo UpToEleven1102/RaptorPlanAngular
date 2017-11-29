@@ -1,0 +1,24 @@
+<section *ngIf="userInfo">
+    <div *ngIf="isCreatePathway">
+        <div class="container grid-x">
+            <div class="cell medium-3">
+                <p>
+                    <i>University: </i> {{userInfo.univeristy}}</p>
+                <p>
+                    <i>Major: </i>{{userInfo.major}}</p>
+            </div>
+            <div class="cell auto">
+                <article>
+                    //TODO: create template
+                    <app-class-list></app-class-list>
+                </article>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div *ngIf="!isCreatePathway">
+        dfasdgasdf
+    </div>
+</section>

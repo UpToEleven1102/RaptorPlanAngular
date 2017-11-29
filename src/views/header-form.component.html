@@ -1,0 +1,23 @@
+<section>
+    <form
+        #headerForm = "ngForm"
+        (ngSubmit)= "onSubmit(headerForm.value)">
+        <div *ngIf="isCreatePathway">
+            <label for="sl_university_name"> <i> University:</i> </label>
+            <select id="sl_university_name" name="univeristy" ngModel>
+                <option *ngFor="let university of universitiesList" [value]="university.name">{{university.name}}</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="sl_major"><i>  Major: </i></label>
+            <select name="major" id="sl_major" ngModel>
+                 <option *ngFor="let major of majorsList" [value]="major">{{major}}</option>
+            </select>
+            <br>
+        </div>
+            
+            
+            <button type="submit" class="button danger hollow">Submit</button>     
+    </form>
+</section>
