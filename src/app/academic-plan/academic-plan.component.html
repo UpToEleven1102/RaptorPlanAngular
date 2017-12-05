@@ -1,0 +1,13 @@
+<section>
+        <form
+            #headerForm = "ngForm"
+            (ngSubmit)= "onSubmit(headerForm.value)">    
+                <label for="sl_major"><i>  Major: </i></label>
+                <select name="major" id="sl_major" ngModel>
+                     <option *ngFor="let major of majorsList" [value]="major.value">{{major.name}}</option>
+                </select>
+                <br>
+                <button type="submit" class="button danger hollow">Submit</button>     
+        </form>
+    </section>
+    

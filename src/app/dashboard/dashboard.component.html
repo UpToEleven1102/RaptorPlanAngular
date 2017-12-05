@@ -1,0 +1,49 @@
+<section *ngIf="userInfo">
+    <div *ngIf="isCreatePathway">
+        <div class="container grid-x">
+            <div class="cell medium-3">
+                <p>
+                    <i>University: </i> {{userInfo.univeristy}}</p>
+                <p>
+                    <i>Major: </i>{{userInfo.major | majorName}}</p>
+            </div>
+            <div class="cell auto">
+                <article>
+                    <app-academic-plan-template></app-academic-plan-template>
+                </article>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div *ngIf="!isCreatePathway">
+        <div class="container grid-x">
+            <div class="cell auto">
+                <div class="document-header">
+                    <h1><strong>{{(userInfo.major | majorName).name}}</strong></h1>
+                    <p>Total Credits: {{(userInfo.major | majorName).credit}}</p>
+                    <p>Catalog Edition: 17-18</p>
+                    <nav class="grid-x" style="text-align: left">
+                        <div class="cell small-7 grid-x">
+                            <span class="cell small-2">Name: </span><span class="box cell small-8">{{userInfo.email}}</span>
+                        </div>
+                        <div class="cell small-3 grid-x">
+                            <span class="cell small-4">Date: </span><span class=" cell small-8 box">{{today | date:'shortDate'}}</span>
+                        </div>
+                       <div class="cell auto grid-x">
+                            <span class="cell small-4">ID#:</span>  <span class="cell small-8 box">{{userInfo.id}}</span>
+                       </div>
+                    </nav>
+                </div>
+                <div class="document-body">
+                    <article>
+                        <app-academic-plan-template [academicTemplate]="majorTemplate"></app-academic-plan-template>
+                    </article>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>

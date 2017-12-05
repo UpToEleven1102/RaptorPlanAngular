@@ -1,0 +1,330 @@
+<section>
+    <div *ngIf="foundation" class="category">
+        <div class="grid-x">
+            <div class="cell medium-7">
+                <h4>General Education: Foundation Courses</h4>
+            </div>
+            <div class="cell medium-3">
+                <h4>Course</h4>
+            </div>
+            <div class="cell medium-1">
+                <h4>Hours</h4>
+            </div>
+            <div class="cell medium-1">
+                <h4>Grade</h4>
+            </div>
+
+        </div>
+
+        <div *ngIf="english_foundation" class="subject">
+            <div class="grid-x">
+                <div class="cell medium-7">
+                    <p>English Foundation</p>
+                </div>
+                <div class="cell medium-5">
+                    <div *ngFor="let course of english_foundation.course; let i = index">
+                        <div class="grid-x">
+                            <div class="cell small-7">
+                                <p class="course" *ngIf="course">{{course}}</p>
+                                <select *ngIf="!course" name="english_foundation_{{i}}">
+                                    <option *ngFor="let class of classList" [value]="class.code">{{class.title}} - {{class.credit}} hour(s)</option>
+                                </select>
+                            </div>
+                            <div class="cell small-2">
+                                {{(course|classObject).credit}}
+                            </div>
+                            <div class="cell small-2">
+                                <input type="text">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div *ngIf="math_foundation" class="subject">
+            <div class="grid-x">
+                <div class="cell medium-7">
+                    <p>Math Foundation</p>
+                </div>
+                <div class="cell medium-5">
+                    <div *ngFor="let course of math_foundation.course; let i = index">
+                        <div class="grid-x">
+                            <div class="cell medium-7">
+                                <p class="course" *ngIf="course">{{course}}</p>
+                                <select *ngIf="!course" name="math_foundation_{{i}}">
+                                    <option *ngFor="let class of classList" [value]="class.code">{{class.title}} - {{class.credit}} hour(s)</option>
+                                </select>
+                            </div>
+                            <div class="cell medium-2">
+                                {{(course|classObject).credit}}
+                            </div>
+                            <div class="cell medium-2">
+                                <input type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="speech_foundation" class="subject">
+            <div class="grid-x">
+                <div class="cell medium-7">
+                    <p>Speech Foundation</p>
+                </div>
+                <div class="cell medium-5">
+                    <div class="grid-y" *ngFor="let course of speech_foundation.course; let i = index">
+                        <div class="grid-x">
+                            <div class="cell medium-7">
+                                <p class="course" *ngIf="course">{{course}}</p>
+                                <select *ngIf="!course" name="speech_foundation_{{i}}">
+                                    <option *ngFor="let class of classList" [value]="class.code">{{class.title}} - {{class.credit}} hour(s)</option>
+                                </select>
+                            </div>
+                            <div class="cell medium-2">
+                                <p *ngIf="course">
+                                    {{(course|classObject).credit}}
+                                </p>
+                                <input *ngIf="!course" type="text">
+                            </div>
+                            <div class="cell medium-2">
+                                <input type="text">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div *ngIf="distribution" class="category">
+        <h4>General Education: Distribution Courses</h4>
+        <div *ngIf="art_distribution" class="subject">
+
+            <div class="grid-x">
+                <div class="cell medium-7">
+                    <p>Art Distribution {{art_distribution.credit}} semester hours (ARTD)</p>
+                </div>
+                <div class="cell medium-5">
+                    <div *ngFor="let course of art_distribution.course; let i = index">
+
+                        <div class="grid-x">
+                            <div class="cell small-7">
+                                <p class="course" *ngIf="course">{{course}}</p>
+                                <select *ngIf="!course" name="art_distribution_{{i}}">
+                                    <option *ngFor="let class of classList|artDistribution" [value]="class.code">{{class.title}} - {{class.credit}} hour(s)</option>
+                                </select>
+                            </div>
+                            <div class="cell small-2">
+                                <div *ngIf="course">
+                                    {{(course|classObject).credit}}
+                                </div>
+                                <input *ngIf="!course" type="text">
+                            </div>
+                            <div class="cell small-2">
+                                <input type="text">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div *ngIf="behavioral_social_distribution" class="subject">
+            <div class="grid-x">
+                <div class="cell medium-7">
+                    <p>Behavioral and social sciences distribution {{behavioral_social_distribution.credit}} semester hours
+                        (BSSD)
+                    </p>
+                </div>
+                <div class="cell medium-5">
+                    <div *ngFor="let course of behavioral_social_distribution.course; let i = index">
+                        <div class="grid-x">
+                            <div class="cell small-7">
+                                <p class="course" *ngIf="course">{{course}}</p>
+                                <select *ngIf="!course" name="behavioral_social_distribution_{{i}}">
+                                    <option *ngFor="let class of classList|behavioralDistribution" [value]="class.code">{{class.title}} - {{class.credit}} hour(s)</option>
+                                </select>
+                            </div>
+                            <div class="cell small-2">
+                                <div *ngIf="course">
+                                    {{(course|classObject).credit}}
+                                </div>
+                                <input type="text">
+                            </div>
+                            <div class="cell small-2">
+                                <input type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <div *ngIf="humanities_distribution" class="subject">
+            <div class="grid-x">
+                <div class="cell medium-7">
+                    <p>Humanities distribution {{humanities_distribution.credit}} semester hours (HUMD)</p>
+                </div>
+                <div class="cell medium-5">
+                    <div *ngFor="let course of humanities_distribution.course; let i = index">
+
+                        <div class="grid-x">
+                            <div class="cell small-7">
+                                <p class="course" *ngIf="course">{{course}}</p>
+                                <select *ngIf="!course" name="humanities_distribution_{{i}}">
+                                    <option *ngFor="let class of classList|humanitiesDistribution" [value]="class.code">{{class.title}} - {{class.credit}} hour(s)</option>
+                                </select>
+                            </div>
+                            <div class="cell small-2">
+                                <div *ngIf="course">
+                                    {{(course|classObject).credit}}
+                                </div>
+                                <input *ngIf="!course" type="text">
+                            </div>
+                            <div class="cell small-2">
+                                <input type="text">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div *ngIf="natural_science_lab_distribution" class="subject">
+            <div class="grid-x">
+                <div class="cell medium-7">
+                    <p>Natural science distribution with lab {{natural_science_distribution.credit}} semester hours (NSLD)</p>
+                </div>
+                <div class="cell medium-5">
+                    <div *ngFor="let course of natural_science_lab_distribution.course; let i = index">
+
+                        <div class="grid-x">
+                            <div class="cell small-7">
+                                <p class="course" *ngIf="course">{{course}}</p>
+                                <select *ngIf="!course" name="natural_science_lab_distribution_{{i}}">
+                                    <option *ngFor="let class of classList|naturalScienceLabDistribution" [value]="class.code">{{class.title}} - {{class.credit}} hour(s)</option>
+                                </select>
+                            </div>
+                            <div class="cell small-2">
+                                <div *ngIf="course">
+                                    {{(course|classObject).credit}}
+                                </div>
+                                <input *ngIf="!course" type="text">
+                            </div>
+                            <div class="cell small-2">
+                                <input type="text">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div *ngIf="natural_science_distribution" class="subject">
+            <div class="grid-x">
+                <div class="cell medium-7">
+                    <p>Natural science distribution {{natural_science_distribution.credit}} semester hours (NSND)</p>
+                </div>
+                <div class="cell medium-5">
+                    <div *ngFor="let course of natural_science_distribution.course; let i = index">
+
+                        <div class="grid-x">
+                            <div class="cell small-7">
+                                <p class="course" *ngIf="course">{{course}}</p>
+                                <select *ngIf="!course" name="natural_science_distribution_{{i}}">
+                                    <option *ngFor="let class of classList|naturalScienceDistribution" [value]="class.code">{{class.title}} - {{class.credit}} hour(s)</option>
+                                </select>
+                            </div>
+                            <div class="cell small-2">
+                                <div *ngIf="course">
+                                    {{(course|classObject).credit}}
+                                </div>
+                                <input *ngIf="!course" type="text">
+                            </div>
+                            <div class="cell small-2">
+                                <input type="text">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div *ngIf="institutional">
+        instituioanl...
+    </div>
+    <div *ngIf="program">
+        <h4>Program Requirements</h4>
+        <div *ngIf="major_program" class="subject">
+            <div class="grid-x">
+                <div class="cell medium-7">
+
+                </div>
+                <div class="cell medium-5">
+                    <div *ngFor="let course of major_program.course; let i = index">
+                        <div class="grid-x">
+                            <div class="cell small-7">
+                                <p class="course" *ngIf="course">{{course}}</p>
+                                <select *ngIf="!course" name="major_program_{{i}}">
+                                    <option *ngFor="let class of classList" [value]="class.code">{{class.title}} - {{class.credit}} hour(s)</option>
+                                </select>
+                            </div>
+                            <div class="cell small-2">
+                                <div *ngIf="course">
+                                    {{(course|classObject).credit}}
+                                </div>
+                                <input *ngIf="!course" type="text">
+                            </div>
+                            <div class="cell small-2">
+                                <input type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div *ngIf="electives_program" class="subject">
+            <div class="grid-x">
+                <div class="cell medium-7">
+                    <p>Program electives {{electives_program.credit}} semester hours</p>
+                </div>
+                <div class="cell medium-5">
+
+                    <div *ngFor="let course of electives_program.course; let i = index">
+                        <div class="grid-x">
+                            <div class="cell small-7">
+                                <select name="elective_{{i}}" id="">
+                                    <option *ngFor="let class of classList|electivesPipe" [value]="class.code">{{class.title}} - {{class.credit}} hour(s)</option>
+                                </select>
+                            </div>
+                            <div class="cell small-2">
+                                <input type="text">
+                            </div>
+                            <div class="cell small-2">
+                                <input type="text">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 

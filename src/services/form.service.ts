@@ -1,4 +1,5 @@
-export class FormService {
+export class ValueContainerService {
     formvalue;
     isCreatePathway: boolean;
+    major;
 }
