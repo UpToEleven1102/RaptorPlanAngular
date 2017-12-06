@@ -23,6 +23,7 @@ import { BehavioralDistributionPipe } from '../pipes/behavioral-distribution.pip
 import { NaturalScienceLabDistribution } from '../pipes/natural-science-lab-distribution.pipe';
 import { NaturalScienceDistributionPipe } from '../pipes/natural-science-distribution.pipe';
 import { HumanitiesDistributionPipe } from '../pipes/humanities-distribution.pipe';
+import { SpeechFoundationPipe } from '../pipes/speech-foundation.pipe';
 
 @NgModule({
   imports: [BrowserModule, routing, HttpModule, FormsModule],
@@ -41,6 +42,7 @@ import { HumanitiesDistributionPipe } from '../pipes/humanities-distribution.pip
       NaturalScienceLabDistribution,
       NaturalScienceDistributionPipe,
       HumanitiesDistributionPipe,
+      SpeechFoundationPipe,
       ArtDistributionPipe],
   providers: [ ClassService,
     ValueContainerService,
